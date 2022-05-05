@@ -8,5 +8,9 @@ if (operation === 'read') {
     console.log(`${entries}: ${data.notes[entries]}`);
   }
 } else if (operation == 'add') {
-  fs.writeFile('./data.json', str, 'utf8', )
+  console.log(data);
+  fs.writeFile('./data.json', JSON.stringify(data.notes.str, null, 2), 'utf8', err => {
+      if (err) throw err;
+    });
+  data.nextId++
 };
