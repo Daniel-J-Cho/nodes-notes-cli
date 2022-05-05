@@ -1,12 +1,12 @@
 const fs = require('fs');
-const json = require('./data.json');
-const operation = process.argv[2] + '\n';
+const data = require('./data.json');
+const operation = process.argv[2];
+const str = process.argv[3];
 
-fs.writeFile('./data.json', operation, 'utf8', (err) => {
-  if (err) throw err;
-  if (operation === 'read') {
-    for (const entries in json.notes) {
-      console.log(`${entries}: ${json.notes[entries]}`);
-    }
+if (operation === 'read') {
+  for (const entries in data.notes) {
+    console.log(`${entries}: ${data.notes[entries]}`);
   }
-});
+} else if (operation == 'add') {
+  fs.writeFile('./data.json', str, 'utf8', )
+};
